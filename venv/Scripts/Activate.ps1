@@ -27,7 +27,7 @@ function global:deactivate ([switch]$NonDestructive) {
 
 deactivate -nondestructive
 
-$env:VIRTUAL_ENV="C:\Users\Rachel\OneDrive\Brooklyn College\6-Bklyn College Spring 2021\CISC 3810 Database\NYC_Water_Consumption\venv"
+$env:VIRTUAL_ENV="C:\Users\Rachel\OneDrive\Brooklyn College\6-Bklyn College Spring 2021\5001 Research Project\DementiaStudy\venv"
 
 if (! $env:VIRTUAL_ENV_DISABLE_PROMPT) {
     # Set the prompt to include the env name

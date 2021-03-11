@@ -1,5 +1,5 @@
 @echo off
-set "VIRTUAL_ENV=C:\Users\Rachel\OneDrive\Brooklyn College\6-Bklyn College Spring 2021\CISC 3810 Database\NYC_Water_Consumption\venv"
+set "VIRTUAL_ENV=C:\Users\Rachel\OneDrive\Brooklyn College\6-Bklyn College Spring 2021\5001 Research Project\DementiaStudy\venv"
 
 if not defined PROMPT (
     set "PROMPT=$P$G"
