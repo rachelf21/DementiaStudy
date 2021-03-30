@@ -1,14 +1,64 @@
-from flask import render_template, request, Response
+from flask import render_template, current_app, request, Response
 from app import app
-from app.models import Borough
+from app.models import Participant, Visit0, Visit1, Visit2, Visit3, Visit4
+
+num1 = 10
+num2 = 25
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', num1=num1, num2=num2)
+
+@app.route('/view_data')
+def view_data():
+    participants = Participant.query.all()
+    return render_template('data.html', participants = participants, num1=num1, num2=num2)
+
+@app.route('/visit_data/<visit_num>')
+def visit_data(visit_num):
+    if visit_num == '0':
+        visit = Visit0.query.filter(Visit0.mmse1 >= num1).filter(Visit0.mmse1 <=num2).filter(Visit0.mmse3 > 0).all()
+    elif visit_num == '1':
+        visit = Visit1.query.filter(Visit1.mmse1 >= num1).filter(Visit1.mmse1 <=num2).filter(Visit1.mmse3 > 0).all()
+    elif visit_num == '2':
+        visit = Visit2.query.filter(Visit2.mmse1 >= num1).filter(Visit2.mmse1 <=num2).filter(Visit2.mmse3 > 0).all()
+    elif visit_num == '3':
+        visit = Visit3.query.filter(Visit3.mmse1 >= num1).filter(Visit3.mmse1 <=num2).filter(Visit3.mmse3 > 0).all()
+    elif visit_num == '4':
+        visit = Visit4.query.filter(Visit4.mmse1 >= num1).filter(Visit4.mmse1 <=num2).filter(Visit4.mmse3 > 0).all()
+    else:
+        visit_num=0
+        visit = Visit0.query.filter(Visit0.mmse1 >= num1).filter(Visit0.mmse1 <= num2).filter(Visit0.mmse3 > 0).all()
+    visit_num = int(visit_num)+1
+    return render_template('visit_data.html', visit = visit, visit_num=visit_num, num1=num1, num2=num2)
+
+@app.route('/participants')
+def participants():
+    visit = Visit0.query.filter(Visit0.mmse1 >= num1).filter(Visit0.mmse1 <=num2).filter(Visit0.mmse3 >0).all()
+    return render_template('participants.html', visit = visit, num1=num1, num2=num2)
+
+@app.route('/placeholder')
+def placeholder():
+    return render_template('placeholder.html', num1=num1, num2=num2)
 
 @app.route('/about')
 def about():
-    return render_template('about.html')
+    return render_template('about.html', num1=num1, num2=num2)
+
+@app.route('/cookie_theft')
+def cookie_theft():
+    return render_template('cookie_theft.html', num1=num1, num2=num2)
+
+@app.route('/graphs')
+def graphs():
+    return render_template('graphs.html', num1=num1, num2=num2)
+
+@app.route('/transcripts')
+def transcripts():
+    with current_app.open_resource("static/output.txt", "r") as f:
+        content = f.read()
+    return render_template("transcripts.html", content=content, num1=num1, num2=num2)
+
 
 # @app.route('/list_dev/<borough>')
 # def list_dev(borough):

@@ -1,0 +1,55 @@
+{% extends "base.html" %} {% block content %}
+<script src="/static/js/my_scripts.js"></script>
+<div name="list_files" style="border: solid red 0px">
+  <h2 class="mt-4 mb-2">Visit {{visit_num}} Transcripts (Initial MMSE Score {{num1}}-{{num2}})</h2>
+
+  <table id="myTable" class="table table-striped table-hover table-bordered table-responsive" style="border: 0px red solid">
+    <thead>
+      <th>ID</th>
+      <th>Sex</th>
+      <th>MMSE</th>
+      <th>Word Count</th>
+      <th>Pronoun Count</th>
+      <th>Noun Count</th>
+      <th>Verb Count</th>
+      <th>Adj Count</th>
+      <th>Adv Count</th>
+      <th>Pauses Count</th>
+      <th>Retracings Count</th>
+      <th>Low Img Verbs</th>
+    </thead>
+    <tbody>
+      {%for v in visit%}
+      <tr class="text-center">
+        <td>{{v.par_id}}</td>
+        <td>{{v.sex}}</td>
+        <td>{{v.mmse}}</td>
+        <td>{{v.word_count}}</td>
+        <td>{{v.pronoun_count}}</td>
+        <td>{{v.noun_count}}</td>
+        <td>{{v.verb_count}}</td>
+        <td>{{v.adj_count}}</td>
+        <td>{{v.adv_count}}</td>
+        <td>{{v.pauses}}</td>
+        <td>{{v.retracings}}</td>
+        <td>{{v.low_img_verbs}}</td>
+      </tr>
+      {%endfor%}
+    </tbody>
+  </table>
+  <script>
+    $("#myTable").DataTable({
+      pageLength: 50,
+      filter: true,
+      deferRender: true,
+      //scrollY: 1200,
+      scrollCollapse: true,
+      scroller: true,
+      //ordering: true,
+      select: true,
+      bSort: true,
+      order: [[0, "asc"]],
+    });
+  </script>
+</div>
+{% endblock %}

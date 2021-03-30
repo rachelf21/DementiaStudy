@@ -1,0 +1,33 @@
+{% extends "base.html" %} {% block content %}
+<script src="/static/js/my_scripts.js"></script>
+<div name="list_files" style="border: solid red 0px">
+  <h2 class="mt-4 mb-2">Coming Soon</h2>
+
+  <table id="myTable" class="table table-striped table-hover table-bordered table-responsive" style="border: 0px red solid">
+    <thead>
+      <th>X</th>
+    </thead>
+    <tbody>
+      {%for v in visit%}
+      <tr class="text-center">
+        <td>{{v.par_id}}</td>
+      </tr>
+      {%endfor%}
+    </tbody>
+  </table>
+  <script>
+    $("#myTable").DataTable({
+      pageLength: 50,
+      filter: true,
+      deferRender: true,
+      //scrollY: 1200,
+      scrollCollapse: true,
+      scroller: true,
+      //ordering: true,
+      select: true,
+      bSort: true,
+      order: [[0, "asc"]],
+    });
+  </script>
+</div>
+{% endblock %}
