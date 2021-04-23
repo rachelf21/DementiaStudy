@@ -1,3 +1,10 @@
+function removeDecimals(num) {
+  if (num > 0) {
+    const n = parseInt(num).toFixed();
+    return n;
+  } else return "";
+}
+
 function convert_date(date) {
   try {
     var newDate = new Date(date);

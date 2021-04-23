@@ -18,9 +18,21 @@
         <td>{{v.par_id}}</td>
         <td>{{v.sex}}</td>
         <td>{{v.mmse1}}</td>
-        <td>{% if v.mmse2 is not none %}{{v.mmse2}}{% endif %}</td>
-        <td>{% if v.mmse3 is not none %}{{v.mmse3}}{% endif %}</td>
-        <td>{% if v.mmse4 is not none %}{{v.mmse4}}{% endif %}</td>
+        <td>
+          <script>
+            document.write(removeDecimals("{{v.mmse2}}"));
+          </script>
+        </td>
+        <td>
+          <script>
+            document.write(removeDecimals("{{v.mmse3}}"));
+          </script>
+        </td>
+        <td>
+          <script>
+            document.write(removeDecimals("{{v.mmse4}}"));
+          </script>
+        </td>
       </tr>
       {%endfor%}
     </tbody>

@@ -23,7 +23,11 @@
       <tr class="text-center">
         <td>{{v.par_id}}</td>
         <td>{{v.sex}}</td>
-        <td>{{v.mmse}}</td>
+        <td>
+          <script>
+            document.write(removeDecimals("{{v.mmse}}"));
+          </script>
+        </td>
         <td>{{v.word_count}}</td>
         <td>{{v.pronoun_count}}</td>
         <td>{{v.noun_count}}</td>

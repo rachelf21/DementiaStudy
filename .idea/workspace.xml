@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="90998247-bbe1-403e-b5ce-64bf91e9343e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/js/my_scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/js/my_scripts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/participants.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/participants.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/visit_data.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/visit_data.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
